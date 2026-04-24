@@ -1,11 +1,18 @@
 <div class="home-container">
   <section class="hero">
     <h1>Benvinguts a Fires Catalanes</h1>
-    <p>La teva guia per descobrir la cultura i tradició de Catalunya a través de les seves fires.</p>
+    <p>Explora les tradicions i esdeveniments més propers.</p>
   </section>
 
   <section class="weekly-section">
-    <h2>📅 Fires d'aquesta setmana</h2>
-    <app-region-fairs-list [fairs]="firesSetmana"></app-region-fairs-list>
+    <h2>📅 Fires dels propers 10 dies</h2>
+    
+    @if (firesProperes.length > 0) {
+      <app-region-fairs-list [fairs]="firesProperes"></app-region-fairs-list>
+    } @else {
+      <div class="no-data-card">
+        <p>No hi ha fires programades per als propers 10 dies.</p>
+      </div>
+    }
   </section>
 </div>
