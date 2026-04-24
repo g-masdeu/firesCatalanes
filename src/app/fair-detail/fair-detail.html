@@ -1,0 +1,43 @@
+<div class="modal-overlay" (click)="close()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <header class="modal-header">
+      <h2>{{ fair.activityName }}</h2>
+      <button class="close-btn" (click)="close()">&times;</button>
+    </header>
+
+    <div class="modal-body">
+      <div class="info-grid">
+        <div class="info-item">
+          <strong>📍 Ubicació:</strong>
+          <p>{{ fair.location }}, {{ fair.municipalityName }} ({{ fair.regionName }})</p>
+        </div>
+        <div class="info-item">
+          <strong>📅 Data:</strong>
+          <p>{{ fair.date }}</p>
+        </div>
+        <div class="info-item">
+          <strong>🏢 Organitzador:</strong>
+          <p>{{ fair.organizerName }}</p>
+        </div>
+        <div class="info-item">
+          <strong>📞 Contacte:</strong>
+          <p>{{ fair.organizerPhone }} | <a [href]="'mailto:' + fair.email">{{ fair.email }}</a></p>
+        </div>
+        <div class="info-item full">
+          <strong>🛠️ Productes:</strong>
+          <p>{{ fair.products }}</p>
+        </div>
+        @if (fair.web) {
+          <div class="info-item full">
+            <strong>🌐 Web oficial:</strong>
+            <p><a [href]="fair.web" target="_blank">{{ fair.web }}</a></p>
+          </div>
+        }
+      </div>
+    </div>
+
+    <footer class="modal-footer">
+      <button class="btn-primary" (click)="close()">Tancar</button>
+    </footer>
+  </div>
+</div>
