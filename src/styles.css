@@ -37,6 +37,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+.select2-container,
+.select2-container .select2-selection,
+.select2-container .select2-search__field,
+.select2-container .select2-results__option {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
 h1,
 h2,
 h3,
