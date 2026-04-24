@@ -1,0 +1,97 @@
+.main-header {
+  background-color: var(--white);
+  padding: 1.2rem 5%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+
+  display: flex;
+  justify-content: space-between; /* 🔥 más profesional */
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  backdrop-filter: blur(8px); /* efecto moderno */
+}
+
+/* LOGO */
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--primary);
+  letter-spacing: -0.5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover h1 {
+  transform: scale(1.05);
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+/* NAV */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* más consistente */
+}
+
+/* LINKS */
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.4rem 0;
+  transition: all 0.25s ease;
+}
+
+/* Subrayado animado */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--primary);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* BOTÓN FAVORITOS */
+.fav-btn {
+  background: linear-gradient(135deg, #fff4e5, #ffe0b2);
+  color: var(--accent) !important;
+  padding: 0.45rem 1rem !important;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.fav-btn:hover {
+  background: var(--accent);
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}

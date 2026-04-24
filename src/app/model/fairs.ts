@@ -1,4 +1,4 @@
-[
+export const FAIRS = [
   {
     "organizerId": "24029646",
     "organizerName": "Ajuntament de Berga",

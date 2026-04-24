@@ -1,0 +1,18 @@
+<div class="fairs-grid">
+  @for (f of fairs; track f.activityId) {
+    <div class="fair-card">
+      <h3>{{ f.activityName }}</h3>
+      <p><strong>📍 </strong> {{ f.municipalityName }} ({{ f.regionName }})</p>
+      <p><strong>📅 </strong> {{ f.date }}</p>
+      
+      <div class="actions">
+        <button (click)="toggleFavorite(f.activityId)" [class.active]="isFav(f.activityId)">
+          {{ isFav(f.activityId) ? '★ Treure' : '☆ Preferida' }}
+        </button>
+        <button class="details">Més info</button>
+      </div>
+    </div>
+  } @empty {
+    <p class="no-results">No s'han trobat fires amb aquests criteris.</p>
+  }
+</div>

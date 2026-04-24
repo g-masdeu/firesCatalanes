@@ -1,0 +1,29 @@
+<div class="dashboard">
+    <aside class="sidebar">
+        <div class="filter-card">
+            <h3>{{ titolPagina }}</h3>
+
+            <!-- Selectores para Comarca o Localidad -->
+            @if (tipus === 'comarca' || tipus === 'poblacio') {
+            <label>Tria una opció:</label>
+            <select (change)="onFilterChange($event)" class="modern-input">
+                <option value="">-- Selecciona --</option>
+                @for (opt of options; track opt) {
+                <option [value]="opt">{{ opt }}</option>
+                }
+            </select>
+            }
+
+            <!-- Selector para Fecha -->
+            @if (tipus === 'data') {
+            <label>Tria un dia i mes:</label>
+            <input type="date" (change)="onDateChange($event)" class="modern-input">
+            <small>(Es mostraran les fires d'aquest dia de qualsevol any)</small>
+            }
+        </div>
+    </aside>
+
+    <section class="results">
+        <app-region-fairs-list [fairs]="filteredFairs"></app-region-fairs-list>
+    </section>
+</div>
