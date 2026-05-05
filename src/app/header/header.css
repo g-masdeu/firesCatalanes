@@ -4,17 +4,17 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 
   display: flex;
-  justify-content: space-between; /* 🔥 más profesional */
+  justify-content: space-between; 
   align-items: center;
 
   position: sticky;
   top: 0;
   z-index: 1000;
 
-  backdrop-filter: blur(8px); /* efecto moderno */
+  backdrop-filter: blur(8px); 
 }
 
-/* LOGO */
+
 .logo h1 {
   font-size: 1.8rem;
   font-weight: 800;
@@ -33,14 +33,14 @@
   color: var(--accent);
 }
 
-/* NAV */
+
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem; /* más consistente */
+  gap: 2rem; 
 }
 
-/* LINKS */
+
 .nav-links a {
   position: relative;
   text-decoration: none;
@@ -51,7 +51,7 @@
   transition: all 0.25s ease;
 }
 
-/* Subrayado animado */
+
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -79,7 +79,7 @@
   width: 100%;
 }
 
-/* BOTÓN FAVORITOS */
+
 .fav-btn {
   background: linear-gradient(135deg, #fff4e5, #ffe0b2);
   color: var(--accent) !important;

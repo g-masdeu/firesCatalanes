@@ -1,43 +1,79 @@
 <div class="modal-overlay" (click)="close()">
   <div class="modal-content" (click)="$event.stopPropagation()">
+    
     <header class="modal-header">
       <h2>{{ fair.activityName }}</h2>
-      <button class="close-btn" (click)="close()">&times;</button>
+      <button class="close-modal-btn" (click)="close()">
+        <span class="material-symbols-outlined">close</span>
+      </button>
     </header>
 
     <div class="modal-body">
       <div class="info-grid">
+        
         <div class="info-item">
-          <strong>📍 Ubicació:</strong>
-          <p>{{ fair.location }}, {{ fair.municipalityName }} ({{ fair.regionName }})</p>
+          <strong>
+            <span class="material-symbols-outlined">location_on</span> Ubicació
+          </strong>
+          <p>{{ fair.location }}</p>
+          <p class="sub-text">{{ fair.municipalityName }} ({{ fair.regionName }})</p>
         </div>
+
         <div class="info-item">
-          <strong>📅 Data:</strong>
+          <strong>
+            <span class="material-symbols-outlined">calendar_month</span> Data
+          </strong>
           <p>{{ fair.date }}</p>
         </div>
+
         <div class="info-item">
-          <strong>🏢 Organitzador:</strong>
+          <strong>
+            <span class="material-symbols-outlined">corporate_fare</span> Organitzador
+          </strong>
           <p>{{ fair.organizerName }}</p>
         </div>
+
         <div class="info-item">
-          <strong>📞 Contacte:</strong>
-          <p>{{ fair.organizerPhone }} | <a [href]="'mailto:' + fair.email">{{ fair.email }}</a></p>
+          <strong>
+            <span class="material-symbols-outlined">contact_support</span> Contacte
+          </strong>
+          <p>{{ fair.organizerPhone }}</p>
+          <p class="sub-text">
+            @if (getEmailHref(fair.email); as emailHref) {
+              <a [href]="emailHref">{{ fair.email }}</a>
+            } @else {
+              <span>{{ fair.email }}</span>
+            }
+          </p>
         </div>
+
         <div class="info-item full">
-          <strong>🛠️ Productes:</strong>
+          <strong>
+            <span class="material-symbols-outlined">inventory_2</span> Productes i activitat
+          </strong>
           <p>{{ fair.products }}</p>
         </div>
-        @if (fair.web) {
+
+        @if (getWebLink(); as webLink) {
           <div class="info-item full">
-            <strong>🌐 Web oficial:</strong>
-            <p><a [href]="fair.web" target="_blank">{{ fair.web }}</a></p>
+            <strong>
+              <span class="material-symbols-outlined">language</span> Web oficial
+            </strong>
+            <p>
+              <a [href]="webLink.href" target="_blank" rel="noopener noreferrer" class="web-link">
+                {{ webLink.label }}
+                <span class="material-symbols-outlined">open_in_new</span>
+              </a>
+            </p>
           </div>
         }
+
       </div>
     </div>
 
     <footer class="modal-footer">
-      <button class="btn-primary" (click)="close()">Tancar</button>
+      <button class="btn-secondary" (click)="close()">Tancar</button>
     </footer>
+
   </div>
 </div>

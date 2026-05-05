@@ -1,60 +1,204 @@
+:host {
+  display: block;
+}
+
 .fairs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  align-items: stretch; 
 }
 
 .fair-card {
   background: white;
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #edf2f7;
+  border-radius: 20px;
+  padding: 25px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+  
+  
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
 }
 
 .fair-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
+
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.fav-star {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  
+  background: transparent;
+  border: 2px solid #ffc107;
+  color: #ffc107;
+}
+
+.fav-star.is-favorite {
+  background: #ffc107;
+  color: white;
+}
+
+
 .fair-card h3 {
-  margin: 0 0 1rem 0;
-  color: var(--primary);
+  margin: 0 0 15px 0;
+  padding-right: 35px; 
+  color: #2d5a27;
+  font-size: 1.25rem;
+  font-weight: 700;
+  min-height: 3.5rem; 
+}
+
+.location, .date {
+  margin: 5px 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+
+.actions {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 10px 25px;
+  border-radius: 12px;
+  color: #2d5a27;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-info:hover {
+  background: #2d5a27;
+  color: white;
+  border-color: #2d5a27;
+  transform: scale(1.05);
+}
+
+.info-icon {
+  font-size: 1.2rem;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px;
+  color: #888;
+  background: white;
+  border-radius: 20px;
+  border: 2px dashed #eee;
+}
+
+
+.info-line {
+  display: flex;
+  align-items: center; 
+  gap: 8px;
+  margin: 6px 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.icon-small {
+  font-size: 1.2rem; 
+  color: #2d5a27;    
+}
+
+
+.btn-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  
+}
+
+.btn-info .material-symbols-outlined {
   font-size: 1.3rem;
 }
 
-.fair-card p {
-  margin: 0.5rem 0;
-  color: var(--text-light);
-  font-size: 0.9rem;
+
+.fav-star .material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400; 
+  font-size: 1.6rem;
 }
 
-.actions {
-  margin-top: 1.5rem;
-  display: flex;
-  gap: 10px;
+.fav-star.is-favorite .material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 400; 
 }
 
-.actions button {
-  flex: 1;
-  padding: 0.6rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  background: white;
+
+.fav-star-clean {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;      
+  border: none;          
+  padding: 0;
   cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
+  color: #ffc107; 
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.btn-fav.active {
-  background-color: var(--accent);
-  color: white;
-  border-color: var(--accent);
+
+.fav-star-clean .material-symbols-outlined {
+  font-size: 2rem; 
+  font-variation-settings: 
+    'FILL' 0,   
+    'wght' 400, 
+    'GRAD' 0, 
+    'opsz' 24;
+  transition: font-variation-settings 0.3s ease;
 }
 
-.btn-details {
-  background-color: var(--primary) !important;
-  color: white !important;
-  border: none !important;
+
+.fav-star-clean.is-favorite .material-symbols-outlined {
+  font-variation-settings: 
+    'FILL' 1,   
+    'wght' 400;
+}
+
+
+.fav-star-clean:hover {
+  transform: scale(1.2); 
+}
+
+.fav-star-clean:active {
+  transform: scale(0.9); 
 }

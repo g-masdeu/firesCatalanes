@@ -1,0 +1,138 @@
+:host {
+  display: block;
+}
+
+.dashboard-horizontal {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+.search-header {
+  background: white;
+  padding: 40px 5%;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  margin-bottom: 40px;
+}
+
+.search-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  color: #1e293b;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0 0 25px 0;
+  letter-spacing: -0.5px;
+}
+
+
+.filters-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.filter-item {
+  flex: 0 1 400px; 
+  min-width: 300px;
+}
+
+.modern-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #2d5a27;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.modern-label .material-symbols-outlined {
+  font-size: 1.1rem;
+}
+
+
+.modern-control {
+  width: 100%;
+  padding: 14px 20px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #334155;
+  background-color: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.modern-control:focus {
+  background-color: #fff;
+  border-color: #2d5a27;
+  box-shadow: 0 0 0 4px rgba(45, 90, 39, 0.1);
+}
+
+
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select-wrapper .modern-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 48px;
+}
+
+.select-wrapper .modern-control::-ms-expand {
+  display: none;
+}
+
+.custom-arrow {
+  position: absolute;
+  right: 15px;
+  pointer-events: none;
+  color: #64748b;
+}
+
+
+.results-stats {
+  margin-left: auto; 
+  background: #f1f5f9;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.results-stats .count {
+  color: #2d5a27;
+  font-weight: 800;
+}
+
+.date-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 15px;
+}
+
+
+.results-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5% 60px 5%;
+  width: 100%;
+}

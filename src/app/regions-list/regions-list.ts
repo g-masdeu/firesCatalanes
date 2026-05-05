@@ -20,7 +20,6 @@ export class RegionsListComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    // Detectamos qué ruta ha cargado este componente
     this.route.data.subscribe(data => {
       this.tipus = data['tipus'];
       this.configurarDashboard();
@@ -61,13 +60,9 @@ onDateChange(event: any) {
     this.filteredFairs = [];
     return;
   }
-
-  // Extraemos solo el mes y el día (del carácter 5 en adelante: "05-15")
   const mesDiaSeleccionat = dataSeleccionada.substring(5);
 
   this.filteredFairs = FAIRS.filter((f: any) => {
-    // f.iniDate es "2025-05-15T00:00:00"
-    // Cortamos para obtener también solo el mes y el día (posiciones 5 a 10)
     const mesDiaFira = f.iniDate.substring(5, 10);
     
     return mesDiaFira === mesDiaSeleccionat;

@@ -1,18 +1,37 @@
 <div class="fairs-grid">
-  @for (f of fairs; track f.activityId) {
+    @for (f of fairs; track f.activityId) {
     <div class="fair-card">
-      <h3>{{ f.activityName }}</h3>
-      <p><strong>📍 </strong> {{ f.municipalityName }} ({{ f.regionName }})</p>
-      <p><strong>📅 </strong> {{ f.date }}</p>
-      
-      <div class="actions">
-        <button (click)="toggleFavorite(f.activityId)" [class.active]="isFav(f.activityId)">
-          {{ isFav(f.activityId) ? '★ Treure' : '☆ Preferida' }}
+
+        
+        <button class="fav-star-clean" [class.is-favorite]="isFav(f.activityId)"
+            (click)="toggleFavorite(f.activityId); $event.stopPropagation()">
+            <span class="material-symbols-outlined">star</span>
         </button>
-        <button class="details">Més info</button>
-      </div>
+
+        <div class="card-body">
+            <h3>{{ f.activityName }}</h3>
+
+            
+            <p class="info-line">
+                <span class="material-symbols-outlined icon-small">location_on</span>
+                {{ f.municipalityName }}
+            </p>
+            <p class="info-line">
+                <span class="material-symbols-outlined icon-small">calendar_month</span>
+                {{ f.date }}
+            </p>
+        </div>
+
+        <div class="actions">
+            <button class="btn-info" (click)="openModal(f)">
+                <span class="material-symbols-outlined">info</span>
+                Info
+            </button>
+        </div>
     </div>
-  } @empty {
-    <p class="no-results">No s'han trobat fires amb aquests criteris.</p>
-  }
+    }
 </div>
+
+@if (selectedFair) {
+<app-fair-detail [fair]="selectedFair" (onClose)="closeModal()"></app-fair-detail>
+}

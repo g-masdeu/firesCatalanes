@@ -1,21 +1,32 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FairDetailComponent } from '../fair-detail/fair-detail';
 
 @Component({
   selector: 'app-region-fairs-list',
   standalone: true,
+  imports: [CommonModule, FairDetailComponent],
   templateUrl: './region-fairs-list.html',
   styleUrl: './region-fairs-list.css'
 })
 export class RegionFairsListComponent implements OnInit {
   @Input() fairs: any[] = [];
   favorites: string[] = [];
+  selectedFair: any = null;
 
   ngOnInit() {
     this.carregarFavs();
   }
+  openModal(fair: any) {
+    this.selectedFair = fair;
+  }
 
+  closeModal() {
+    this.selectedFair = null;
+  }
   carregarFavs() {
-    this.favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    const saved = localStorage.getItem('favorites');
+    this.favorites = saved ? JSON.parse(saved) : [];
   }
 
   toggleFavorite(id: string) {
