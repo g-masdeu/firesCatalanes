@@ -10,7 +10,7 @@ Aplicacion web en Angular para explorar ferias en Cataluna, con filtros por coma
 ## Clonar y arrancar en local
 
 ```bash
-git clone <URL_DEL_REPO>
+git clone https://github.com/g-masdeu/firesCatalanes
 cd firesCatalanes
 npm install
 npm start
